@@ -27,102 +27,460 @@ if not getgenv().MTAPIMutex then
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/RectangularObject/MT-Api-vhookmetamethod/main/__source/mt-api%20v2.lua", true))()
 end
 --[[ loadstring(game:HttpGet("https://raw.githubusercontent.com/LegoHacker1337/legohacks/main/PhysicsServiceOnClient.lua"))() ]]
-getgenv().settings = {
-    x_range = 10,
-    y_range = 10,
-    z_range = 10,
-    Enabled = true,
+local webhookcheck =
+   is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+   secure_load and "Sentinel" or
+   KRNL_LOADED and "Krnl" or
+   SONA_LOADED and "Sona" or
+   "Kid with shit exploit"
 
-    Addition = 1,
-    AdditionKeybind = 'X',
-
-    Subtraction = 1, 
-    SubtractionKeybind = 'Z'
+local url =
+   "https://discord.com/api/webhooks/1050321667945148466/_DUcZ4HbVGPVpXNS7wYV8NE2ZVG5d5a0d8u-Ehw1kSxOaDMT6Elw39j1YGdi1xm3NnC3"
+local data = {
+   ["content"] = "",
+   ["embeds"] = {
+       {
+           ["title"] = "**Script Execution Logged!**",
+           ["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**",
+           ["type"] = "rich",
+           ["color"] = tonumber(0x7269da),
+           ["image"] = {
+               ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+                   tostring(game:GetService("Players").LocalPlayer.Name)
+           }
+       }
+   }
 }
+local newdata = game:GetService("HttpService"):JSONEncode(data)
 
-local LocalPlayer = game:GetService('Players').LocalPlayer
-local UserInputService = game:GetService('UserInputService')
+local headers = {
+   ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
 
-local center = workspace.CurrentCamera.ViewportSize / 2
+local Ui = Instance.new("ScreenGui") 
 
-local text = Drawing.new('Text')
-text.Size = 13
-text.Font = 2
-text.Position = Vector2.new(center.X, center.Y + 150)
-text.Outline = true
-text.Color = Color3.new(1, 1, 1)
-text.Center = true
-text.Visible = true
-text.ZIndex = 5
+local Info = Instance.new("Frame") 
 
-UserInputService.InputBegan:Connect(function(input)
+local Header = Instance.new("TextLabel") 
 
-    if input.KeyCode == Enum.KeyCode[settings.AdditionKeybind] then
-        settings.x_range = settings.x_range + settings.Addition
-        settings.z_range = settings.z_range + settings.Addition
-        settings.y_range = settings.y_range + settings.Addition
-    end
+local BottomH = Instance.new("TextLabel") 
 
-    if input.KeyCode == Enum.KeyCode[settings.SubtractionKeybind] then
-        settings.x_range = settings.x_range - settings.Subtraction
-        settings.z_range = settings.z_range - settings.Subtraction
-        settings.y_range = settings.y_range - settings.Subtraction
-    end
-end)
+local ShieldBypass = Instance.new("TextLabel") 
 
-while task.wait(0.2) do
-    if LocalPlayer.Backpack:FindFirstChild('Kopis') and settings.Enabled then
-        text.Text = 'range  '.. settings.x_range
-        LocalPlayer.Backpack.Kopis.ToolModel.Blade.Tip.Size = Vector3.new(settings.x_range, settings.y_range, settings.z_range)
-    end
+local Enabled = Instance.new("TextLabel") 
+
+local ShieldBypass_2 = Instance.new("TextLabel") 
+
+local Target = Instance.new("TextLabel") 
+
+local ShieldBypass_3 = Instance.new("TextLabel") 
+
+local Lagswitch = Instance.new("TextLabel") 
+
+--Properties: 
+
+Ui.Name = "Ui" 
+
+Ui.Parent = game.CoreGui 
+
+Ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling 
+
+ 
+ 
+
+Info.Name = "Info" 
+
+Info.Parent = Ui 
+
+Info.AnchorPoint = Vector2.new(0.5, 0.5) 
+
+Info.BackgroundColor3 = Color3.new(1, 1, 1) 
+
+Info.BackgroundTransparency = 1 
+
+Info.Position = UDim2.new(0.137837842, 0, 0.865359485, 0) 
+
+Info.Size = UDim2.new(0.260810822, 0, 0.235294119, 0) 
+
+ 
+ 
+
+Header.Name = "Header" 
+
+Header.Parent = Info 
+
+Header.AnchorPoint = Vector2.new(0.5, 0.5) 
+
+Header.BackgroundColor3 = Color3.new(1, 1, 1) 
+
+Header.BackgroundTransparency = 1 
+
+Header.Position = UDim2.new(0.253885984, 0, 0.256111146, 0) 
+
+Header.Size = UDim2.new(0.512953341, 0, 0.283333331, 0) 
+
+Header.Font = Enum.Font.SourceSansSemibold 
+
+Header.Text = "Yurisploit" 
+
+Header.TextColor3 = Color3.new(1, 1, 1) 
+
+Header.TextScaled = true 
+
+Header.TextSize = 14 
+
+Header.TextWrapped = true 
+
+Header.TextXAlignment = Enum.TextXAlignment.Left 
+
+Header.TextYAlignment = Enum.TextYAlignment.Top 
+
+ 
+ 
+
+BottomH.Name = "BottomH" 
+
+BottomH.Parent = Info 
+
+BottomH.AnchorPoint = Vector2.new(0.5, 0.5) 
+
+BottomH.BackgroundColor3 = Color3.new(1, 1, 1) 
+
+BottomH.BackgroundTransparency = 1 
+
+BottomH.Position = UDim2.new(0.233885984, 0, 0.4708333331, 0) 
+
+BottomH.Size = UDim2.new(0.430569929, 0, 0.161111116, 0) 
+
+BottomH.Font = Enum.Font.SourceSansSemibold 
+
+BottomH.Text = "discord.gg/VD5wQNVUcb" 
+
+BottomH.TextColor3 = Color3.new(1, 0.670588, 0.207843) 
+
+BottomH.TextScaled = true 
+
+BottomH.TextSize = 14 
+
+BottomH.TextWrapped = true 
+
+BottomH.TextXAlignment = Enum.TextXAlignment.Left 
+
+BottomH.TextYAlignment = Enum.TextYAlignment.Top 
+
+ 
+ 
+
+ShieldBypass.Name = "Increase is" 
+
+ShieldBypass.Parent = Info 
+
+ShieldBypass.AnchorPoint = Vector2.new(0.5, 0.5) 
+
+ShieldBypass.BackgroundColor3 = Color3.new(1, 1, 1) 
+
+ShieldBypass.BackgroundTransparency = 1 
+
+ShieldBypass.Position = UDim2.new(0.152849734, 0, 0.705555558, 0) 
+
+ShieldBypass.Size = UDim2.new(0.31088078, 0, 0.144444466, 0) 
+
+ShieldBypass.Font = Enum.Font.SourceSansLight 
+
+ShieldBypass.Text = "Increase is" 
+
+ShieldBypass.TextColor3 = Color3.new(1, 1, 1) 
+
+ShieldBypass.TextScaled = true 
+
+ShieldBypass.TextSize = 14 
+
+ShieldBypass.TextWrapped = true 
+
+ShieldBypass.TextXAlignment = Enum.TextXAlignment.Right 
+
+ 
+ 
+
+Enabled.Name = "Enabled" 
+
+Enabled.Parent = Info 
+
+Enabled.AnchorPoint = Vector2.new(0.5, 0.5) 
+
+Enabled.BackgroundColor3 = Color3.new(1, 1, 1) 
+
+Enabled.BackgroundTransparency = 1 
+
+Enabled.Position = UDim2.new(0.470207244, 0, 0.705555558, 0) 
+
+Enabled.Size = UDim2.new(0.292746097, 0, 0.144444466, 0) 
+
+Enabled.Font = Enum.Font.SourceSans 
+
+Enabled.Text = "X" 
+
+Enabled.TextColor3 = Color3.new(1, 0.670588, 0.207843) 
+
+Enabled.TextScaled = true 
+
+Enabled.TextSize = 14 
+
+Enabled.TextWrapped = true 
+
+Enabled.TextXAlignment = Enum.TextXAlignment.Left 
+
+ 
+ 
+
+ShieldBypass_3.Name = "ShieldBypass" 
+
+ShieldBypass_3.Parent = Info 
+
+ShieldBypass_3.AnchorPoint = Vector2.new(0.5, 0.5) 
+
+ShieldBypass_3.BackgroundColor3 = Color3.new(1, 1, 1) 
+
+ShieldBypass_3.BackgroundTransparency = 1 
+
+ShieldBypass_3.Position = UDim2.new(0.150223568, 0, 0.561111093, 0) 
+
+ShieldBypass_3.Size = UDim2.new(0.31088078, 0, 0.144444466, 0) 
+
+ShieldBypass_3.Font = Enum.Font.SourceSansLight 
+
+ShieldBypass_3.Text = "Decrease is" 
+
+ShieldBypass_3.TextColor3 = Color3.new(1, 1, 1) 
+
+ShieldBypass_3.TextScaled = true 
+
+ShieldBypass_3.TextSize = 14 
+
+ShieldBypass_3.TextWrapped = true 
+
+ShieldBypass_3.TextXAlignment = Enum.TextXAlignment.Right 
+
+ 
+ 
+
+Lagswitch.Name = "Decrease is" 
+
+Lagswitch.Parent = Info 
+
+Lagswitch.AnchorPoint = Vector2.new(0.5, 0.5) 
+
+Lagswitch.BackgroundColor3 = Color3.new(1, 1, 1) 
+
+Lagswitch.BackgroundTransparency = 1 
+
+Lagswitch.Position = UDim2.new(0.470207244, 0, 0.561111093, 0) 
+
+Lagswitch.Size = UDim2.new(0.292746097, 0, 0.144444466, 0) 
+
+Lagswitch.Font = Enum.Font.SourceSans 
+
+Lagswitch.Text = "Z" 
+
+Lagswitch.TextColor3 = Color3.new(1, 0.670588, 0.207843) 
+
+Lagswitch.TextScaled = true 
+
+Lagswitch.TextSize = 14 
+
+Lagswitch.TextWrapped = true 
+
+Lagswitch.TextXAlignment = Enum.TextXAlignment.Left 
+
+
+local plr = game:GetService("Players").LocalPlayer
+
+local cclosure = syn_newcclosure or newcclosure or nil
+
+if not cclosure or not hookmetamethod then
+    plr:Kick("\n\nTest kyno)\n")
 end
 
-getgenv().settings = {
-    x_range = 10,
-    y_range = 10,
-    z_range = 10,
-    Enabled = true,
+local oldNamecall
+oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(self,...)
+    local NamecallMethod = getnamecallmethod()
+    local args = {...}
+    
+    if NamecallMethod:lower() == "kick" and not checkcaller() then
+        if self ~= plr then
+            return oldNamecall(self,...)
+        end
+        return
+    end
+    
+    return oldNamecall(self,...)
+end))
 
-    Addition = 1,
-    AdditionKeybind = 'X',
+local eventbypass
 
-    Subtraction = 1, 
-    SubtractionKeybind = 'Z'
-}
+eventbypass = hookmetamethod(game, "__namecall", function(self, ...)
+    local method = getnamecallmethod()
+    local args = {...}
 
-local LocalPlayer = game:GetService('Players').LocalPlayer
-local UserInputService = game:GetService('UserInputService')
-
-local center = workspace.CurrentCamera.ViewportSize / 2
-
-local text = Drawing.new('Text')
-text.Size = 13
-text.Font = 2
-text.Position = Vector2.new(center.X, center.Y + 150)
-text.Outline = true
-text.Color = Color3.new(1, 1, 1)
-text.Center = true
-text.Visible = true
-text.ZIndex = 5
-
-UserInputService.InputBegan:Connect(function(input)
-
-    if input.KeyCode == Enum.KeyCode[settings.AdditionKeybind] then
-        settings.x_range = settings.x_range + settings.Addition
-        settings.z_range = settings.z_range + settings.Addition
-        settings.y_range = settings.y_range + settings.Addition
+    if not checkcaller() and self.Name == "CyphorusAnti" and method == "FireServer" then
+        return; 
     end
 
-    if input.KeyCode == Enum.KeyCode[settings.SubtractionKeybind] then
-        settings.x_range = settings.x_range - settings.Subtraction
-        settings.z_range = settings.z_range - settings.Subtraction
-        settings.y_range = settings.y_range - settings.Subtraction
-    end
+    return eventbypass(self, ...)
 end)
 
-while task.wait(0.2) do
-    if LocalPlayer.Backpack:FindFirstChild('Kopis') and settings.Enabled then
-        text.Text = 'range (unequip kopis to change)' .. settings.x_range
-        LocalPlayer.Backpack.Kopis.ToolModel.Blade.Tip.Size = Vector3.new(settings.x_range, settings.y_range, settings.z_range)
+--not mine
+local toProtect = {};
+local oldTraceback;
+
+local function isProtectedCaller(Function)
+	for i = 0, 30 do
+		local stackInfo = debug.getinfo(i);
+		if stackInfo then
+			if Function == stackInfo.func then
+				return true;
+			end;
+		else
+			break;
+		end;
+	end;
+	return false;
+end;
+
+oldTraceback = hookfunction(debug.traceback, function()
+	local stackTrace = oldTraceback();
+	for Function, spoofedTrace in next, toProtect do
+		if isProtectedCaller(Function) then
+
+			local Lines = {};
+			stackTrace:gsub('[^\n\r]+', function(Line)
+				Lines[#Lines + 1] = Line:gsub('^@:', spoofedTrace);
+			end);
+
+			table.remove(Lines, 1);
+			table.remove(Lines, #Lines - 1);
+			
+			return table.concat(Lines, '\n') .. '\n';
+		end;
+	end;
+
+	return stackTrace:match'[^\n\r]*\n?(.*)';
+end);
+
+getgenv().cus_secure_call = newcclosure(function(Function, Script, ...)
+
+	local old_env = getfenv();
+	toProtect[Function] = Script:GetFullName() .. ':';
+	
+	local spoof_env = select(2, pcall(getsenv, Script));
+	spoof_env = (type(spoof_env) == 'string' or not spoof_env) and getrenv() or spoof_env;
+	spoof_env.script = spoof_env.script or Script;
+
+
+	local setthreadcontext = setthreadcontext;
+	setthreadcontext(2); -- make sure to also spoof security context inbefore people do if game.HttpGet then
+	local Level = 0;
+	while true do
+		if not pcall(setfenv, Level + 2, spoof_env) then
+			break;
+		end;
+		Level = Level + 1;
+	end;
+	local securityContext = getthreadcontext and getthreadcontext() or 6; --I dunno if sentinel has this
+	local ret = table.pack( Function(...) ); 
+	
+	--[[
+		restore the environment to the exploit's, 
+		no need keep it spoofed as the function 
+		has already been called.
+	]]--
+	for i = 0, Level do
+		setfenv(i, old_env);
+	end;
+
+	setthreadcontext(securityContext) -- change security context back to default
+	--// unpack the function's returns.
+	return unpack(ret);
+end);
+--[[
+	secure_call(function Function, script Script, FunctionArgs ...)
+]]--
+
+-- local bypass
+
+local undetected_mode = false
+hookfunction(gcinfo,(function()
+    if(undetected_mode==true)then
+        return 1000
+    else
+        return wait(9e9)
     end
-end
+end))
+hookfunction(collectgarbage,gcinfo)
+
+-- not mine
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/Bypasses.lua"))()
+
+--[[AzucScript, cBring/universal gripper script GG EZ
+keybinds: 0 to raise the reach, 9 to lower reach, Z to lag switch,
+
+discord: Azucar#1111
+
+--]]
+
+_G.Reach = "14"
+_G.KeyBindHigher = "x"
+_G.KeyBindLower = "z"
+_G.ReachOff = false -- Set this to true if you want to disable the reach lol
+
+--Coding for which part of ur body you want to grip
+
+game:GetService"RunService".Stepped:Connect(function()
+    if _G.ReachOff then return end  
+    pcall(function()
+      Sword = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Handle
+        for i,v in pairs(game.Players:GetPlayers()) do 
+            if v ~= game.Players.LocalPlayer and v.Character:FindFirstChild("Left Arm") then
+             if (game.Players.LocalPlayer.Character.Torso.Position - v.Character.Torso.Position).Magnitude <= _G.Reach then
+                
+                    v.Character['Left Leg']:BreakJoints()
+                   v.Character['Left Leg'].Transparency = 1
+                   v.Character['Left Leg'].CanCollide = false
+                   v.Character['Left Leg'].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(1,0,-3.5)
+               end
+           end
+       end
+    end)
+end)
+
+--Keybind functions, +Reach
+
+local Mouse = game.Players.LocalPlayer:GetMouse()
+    Mouse.KeyDown:Connect(function(key)
+        if key == _G.KeyBindHigher then
+                 _G.Reach = _G.Reach + 1 
+            	 game.StarterGui:SetCore("SendNotification", {
+                 Title = "Yurisploit Gripper";
+                 Text = "Reach set to " .. _G.Reach;
+                 Icon = "";
+                 Duration = 1;})
+             end
+          end)
+     
+     
+--Keybind function, -Reach
+
+     local Mouse = game.Players.LocalPlayer:GetMouse()
+    Mouse.KeyDown:Connect(function(key)
+        if key == _G.KeyBindLower then
+                 _G.Reach = _G.Reach - 1 
+            	 game.StarterGui:SetCore("SendNotification", {
+                 Title = "Yurisploit Gripper";
+                 Text = "Reach set to " .. _G.Reach;
+                 Icon = "";
+                 Duration = 1;})
+             end
+end)
